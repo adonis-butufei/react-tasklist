@@ -15,6 +15,12 @@ function TodoApp() {
         console.log(newTodos);
     }
 
+    const handleDelete = (id) => {
+        const newTodos = todos.filter(todo=>todo.id !== id);
+        setTodos(newTodos);
+    }
+    
+
     return (
         <main className="container" id="container">
             <h1>Task List</h1>
@@ -22,7 +28,10 @@ function TodoApp() {
 
             <div className="tasks-container">
                 <div className="task-list">
-                    <Todo todos={todos}/>
+                    <Todo
+                        todos={todos}
+                        handleDelete={handleDelete}
+                    />
                 </div>
             </div>
             
