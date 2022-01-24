@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { AiOutlinePlus } from 'react-icons/ai';
+import { useState } from 'react';
+import Button from './Button';
 
 function TodoForm(props) {
 
@@ -11,7 +11,6 @@ function TodoForm(props) {
     }
 
     const handleClick = e => {
-        // e.preventDefault();
 
         props.onClick({
             id: id,
@@ -25,9 +24,7 @@ function TodoForm(props) {
 
     return (
         <div className="input">
-            <button className="add" onClick={handleClick}>
-                <AiOutlinePlus className="icon" />
-            </button>
+        <Button action="add" onClick={handleClick}/>
             <input 
                 type="search" 
                 placeholder="add a task" 

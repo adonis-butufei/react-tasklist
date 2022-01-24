@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { RiCloseCircleLine } from 'react-icons/ri';
 import { BsCircle } from 'react-icons/bs';
+import Button from './Button';
 
-function Todo( {todos} ) {
+function Todo( {todos, handleDelete} ) {
 
     return todos.map((todo, index) => (
         <div className="task" data-index={index} key={index}>
@@ -10,9 +9,7 @@ function Todo( {todos} ) {
                 <BsCircle className="bulleticon" />
                 {todo.text}
             </div>
-            <button className="delete">
-                <RiCloseCircleLine className="icon"/>
-            </button>
+            <Button action="delete" onClick={() => handleDelete(todo.id)}/>
         </div>
     ));
 }
