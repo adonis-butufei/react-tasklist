@@ -16,8 +16,30 @@ const Button = ({ action, onClick }) => {
                 <RiCloseCircleLine className="icon" />
             }
 
+            {
+                action === 'clear-all'
+            }
+            
         </button>
     );
 }
 
 export default Button;
+
+
+// const ButtonActions = {
+//     add: {
+//         name: "add",
+//         icon: AiOutlinePlus,
+//         text: undefined
+//     },
+//     delete: {
+//      //....
+//     },
+//     deleteAll: {
+//         text: "Clear All"
+//     }
+//  };
+ 
+//  export default ButtonActions;
+ 

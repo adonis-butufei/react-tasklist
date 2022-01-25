@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from './Button';
 
-function TodoForm(props) {
+function TodoForm({onClick}) {
 
     const [input, setInput] = useState("");
     const [id, setId] = useState(0);
@@ -12,7 +12,7 @@ function TodoForm(props) {
 
     const handleClick = e => {
 
-        props.onClick({
+        onClick({
             id: id,
             text: input,
             isComplete: false
@@ -25,7 +25,7 @@ function TodoForm(props) {
 
     return (
         <div className="input">
-        <Button action="add" onClick={handleClick}/>
+            <Button action="add" onClick={handleClick}/>
             <input 
                 type="search" 
                 placeholder="add a task" 

@@ -3,10 +3,9 @@ import Button from './Button';
 
 function Todo( {todos, completeTodo, handleDelete} ) {
 
-    return todos.map((todo, index) => (
+    return todos.map((todo) => (
         <div className={todo.isComplete ? "task done" : "task"}
-        data-index={index} 
-        key={index}>
+        key={todo.id}>
             <div className="title" 
                  key={todo.id}
                  onClick={() => completeTodo(todo.id)}>
@@ -20,3 +19,8 @@ function Todo( {todos, completeTodo, handleDelete} ) {
 }
 
 export default Todo;
+
+
+// TODO1: onComplete, onDelete
+// TODO2: change to TodoList
+// TODO3: change to TodoItem
