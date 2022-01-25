@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ButtonActions from '../utils/buttonActions';
 import Button from './Button';
 
 function TodoForm({onClick}) {
@@ -25,7 +26,7 @@ function TodoForm({onClick}) {
 
     return (
         <div className="input">
-            <Button action="add" onClick={handleClick}/>
+            <Button type={ButtonActions.add} onClick={handleClick}/>
             <input 
                 type="search" 
                 placeholder="add a task" 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Todo from './Todo';
 import TodoForm from './TodoForm';
 import Button from './Button';
+import ButtonActions from '../utils/buttonActions';
 
 function TodoApp() {
     // TODO5: Local storage called here
@@ -28,7 +29,7 @@ function TodoApp() {
     }
 
     const handleDelete = id => {
-        const newTodos = todos.filter(todo=>todo.id !== id);
+        const newTodos = todos.filter(todo => todo.id !== id);
         setTodos(newTodos);
     }
 
@@ -47,18 +48,13 @@ function TodoApp() {
                 <div className="task-list">
                     <Todo
                         todos={todos}
-                        completeTodo={completeTodo}
-                        handleDelete={handleDelete}
+                        onComplete={completeTodo}
+                        onDelete={handleDelete}
                     />
                 </div>
             </div>
             
-            <button 
-                className="clear-all"
-                onClick={deleteAll}>
-                Clear All
-            </button>
-            {/* <Button action="clear-all" onClick={deleteAll} /> */}
+            <Button type={ButtonActions.deleteAll} onClick={deleteAll} /> 
         </main>
     );
 }
