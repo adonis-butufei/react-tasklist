@@ -138,6 +138,7 @@ button:focus {
 
 .bulleticon {
   margin-right: 10px;
+  border-radius: 50%;
 }
 
 .done {
@@ -146,7 +147,11 @@ button:focus {
 }
 
 .done .title::before {
-  content: "\f058";
+  /* content: "\f058"; */
+}
+
+.done .bulleticon {
+  background-color:#29897e;
 }
 
 

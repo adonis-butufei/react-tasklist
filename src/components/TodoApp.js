@@ -15,9 +15,23 @@ function TodoApp() {
         console.log(newTodos);
     }
 
+    const completeTodo = (id) => {
+        let updatedTodos = todos.map(todo => {
+            if(todo.id === id) {
+                todo.isComplete = !todo.isComplete;
+            }
+            return todo;
+        });
+        setTodos(updatedTodos);
+    }
+
     const handleDelete = (id) => {
         const newTodos = todos.filter(todo=>todo.id !== id);
         setTodos(newTodos);
+    }
+
+    const deleteAll = () => {
+        setTodos([]);
     }
     
 
@@ -30,12 +44,17 @@ function TodoApp() {
                 <div className="task-list">
                     <Todo
                         todos={todos}
+                        completeTodo={completeTodo}
                         handleDelete={handleDelete}
                     />
                 </div>
             </div>
             
-            <button className="clear-all">Clear All</button>
+            <button 
+                className="clear-all"
+                onClick={deleteAll}>
+                Clear All
+            </button>
         </main>
     );
 }

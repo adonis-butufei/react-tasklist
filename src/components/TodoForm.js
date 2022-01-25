@@ -14,7 +14,8 @@ function TodoForm(props) {
 
         props.onClick({
             id: id,
-            text: input
+            text: input,
+            isComplete: false
         });
 
         const newId = id + 1;
