@@ -9,6 +9,7 @@ export default function TodoList({ todos, onCompleteTodo, onDeleteTodo }) {
                 {todos.map((todo) => (
                     <TodoItem
                         todo={todo}
+                        key={todo.id}
                         onCompleteTodo={onCompleteTodo}
                         onDeleteTodo={onDeleteTodo}
                     />))}

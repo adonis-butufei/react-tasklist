@@ -4,12 +4,12 @@ import { AiOutlinePlus } from 'react-icons/ai';
 const ButtonActions = {
     add: {
         className: "add",
-        icon: AiOutlinePlus,
+        icon: <AiOutlinePlus />,
         text: undefined
     },
     delete: {
         className: "delete",
-        icon: RiCloseCircleLine,
+        icon: <RiCloseCircleLine />,
         text: undefined
     },
     deleteAll: {
