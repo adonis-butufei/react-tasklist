@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import TodoForm from './TodoForm';
 import Button from './Button';
 import ButtonActions from '../utils/buttonActions';
 import TodoList from './TodoList';
+import useUpdateDataLocalStorage from './useUpdateData';
 
 function TodoApp() {
     
-    // Local storage functionalities
-    
-    const [todos, setTodos] = useState(() => {
-        const localData = localStorage.getItem('todos');
-        return localData ? JSON.parse(localData) : [];
-    });
-
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos))
-    }, [todos]);
+    // Setting todos and setTodos by calling the custom hook
+    const { data: todos, setData: setTodos } = useUpdateDataLocalStorage('todos');
 
     const addTodo = todo => {
 
