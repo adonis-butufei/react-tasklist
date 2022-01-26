@@ -11,6 +11,7 @@ export default function TodoList({ todos, onCompleteTodo, onDeleteTodo }) {
                         todo={todo}
                         onCompleteTodo={onCompleteTodo}
                         onDeleteTodo={onDeleteTodo}
+                        key={todo.id}
                     />))}
             </div>
         </div>
