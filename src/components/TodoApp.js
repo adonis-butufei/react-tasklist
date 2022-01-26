@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import Button from './Button';
 import ButtonActions from '../utils/buttonActions';
 import TodoList from './TodoList';
 
 function TodoApp() {
-    // TODO5: Local storage called here
     
-    const [todos, setTodos] = useState([]);
+    // Local storage functionalities
+    
+    const [todos, setTodos] = useState(() => {
+        const localData = localStorage.getItem('todos');
+        return localData ? JSON.parse(localData) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos]);
 
     const addTodo = todo => {
 
@@ -47,7 +55,7 @@ function TodoApp() {
     return (
         <main className="container">
             <h1>Task List</h1>
-            <TodoForm onClick={addTodo} />
+            <TodoForm todos={todos} onClick={addTodo} />
 
             <TodoList todos={todos} onCompleteTodo={onCompleteTodo} onDeleteTodo={onDeleteTodo} />
 
