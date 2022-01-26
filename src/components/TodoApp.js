@@ -10,17 +10,23 @@ function TodoApp() {
 
     const addTodo = todo => {
         // TODO6: trim for spaces
-        if(!todo.text) {
-            throw new Error("Invalid input!");
+
+        try {
+            if (!todo.text) {
+                throw new Error("Invalid input!");
+            }
+            const newTodos = [todo, ...todos];
+            setTodos(newTodos);
+        } catch (error) {
+            alert(error.message)
         }
 
-        const newTodos = [todo, ...todos];
-        setTodos(newTodos);
+
     }
 
     const completeTodo = id => {
         let updatedTodos = todos.map(todo => {
-            if(todo.id === id) {
+            if (todo.id === id) {
                 todo.isComplete = !todo.isComplete;
             }
             return todo;
@@ -36,12 +42,12 @@ function TodoApp() {
     const deleteAll = () => {
         setTodos([]);
     }
-    
+
 
     return (
         <main className="container">
             <h1>Task List</h1>
-            <TodoForm onClick={addTodo}/>
+            <TodoForm onClick={addTodo} />
 
             {/* TODO4: move divs inside TodoList component, leave just TodoList*/}
             <div className="tasks-container">
@@ -53,8 +59,8 @@ function TodoApp() {
                     />
                 </div>
             </div>
-            
-            <Button type={ButtonActions.deleteAll} onClick={deleteAll} /> 
+
+            <Button type={ButtonActions.deleteAll} onClick={deleteAll} />
         </main>
     );
 }
