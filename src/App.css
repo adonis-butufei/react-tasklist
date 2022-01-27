@@ -210,3 +210,7 @@ button:focus {
   color: black;
 }
 
+.error img {
+  height: 50vh;
+}
+

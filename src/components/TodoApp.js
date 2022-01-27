@@ -43,7 +43,7 @@ function TodoApp() {
         setTodos([]);
     }
     
-    if (error) throw new Error('ERROR! invalid input');
+    if (error) throw new Error('Invalid Input');
     
     return (
         <main className="container">
