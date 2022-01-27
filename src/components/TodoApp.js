@@ -3,26 +3,28 @@ import Button from './Button';
 import ButtonActions from '../utils/buttonActions';
 import TodoList from './TodoList';
 import useUpdateDataLocalStorage from './useUpdateData';
-
+import { useState } from 'react';
 
 function TodoApp() {
 
     // Setting todos and setTodos by calling the custom hook
     const { data: todos, setData: setTodos } = useUpdateDataLocalStorage('todos');
+    const [error, setError] = useState(false);
 
 
     const addTodo = todo => {
 
-        try {
-            if (!todo.text || todo.text.trim() === "") {
-                throw new Error("invalid input");
-            }
+        if (!todo.text || todo.text.trim() === "") {
+            setError(true);
+        }
+        else {
             const newTodos = [todo, ...todos];
             setTodos(newTodos);
-        } catch (err) {
-            alert(err.message);
         }
+
     }
+
+    if (error) throw new Error('ERROR! invalid input');
 
     const onCompleteTodo = id => {
         let updatedTodos = todos.map(todo => {
