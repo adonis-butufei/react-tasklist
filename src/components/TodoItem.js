@@ -6,9 +6,8 @@ function TodoItem({ todo, onCompleteTodo, onDeleteTodo }) {
 
     return (
         <>
-            <div className={todo.isComplete ? "task done" : "task"}
-                key={todo.id}>
-
+            <div className={todo.isComplete ? "task done" : "task"}>
+            
                 <div className="title"
                     key={todo.id}
                     onClick={() => onCompleteTodo(todo.id)}>
