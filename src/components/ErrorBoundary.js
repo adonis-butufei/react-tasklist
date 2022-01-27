@@ -15,8 +15,14 @@ class ErrorBoundary extends React.Component {
     render() {
         if (this.state.errorInfo) {
           // fallback UI if error exists
-          return <h2>Something went wrong!</h2>;
+          return (
+              <div className="error">
+                  <h1>Something Went Wrong...!</h1>
+                  <p>Please, try again</p>
+              </div>
+          )
         }
+        // if no error, TodoApp show 
         return this.props.children;
       }
 }
