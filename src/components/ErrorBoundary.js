@@ -4,21 +4,23 @@ class ErrorBoundary extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { error: null, errorInfo:null };
+        this.state = { error: null};
     }
 
     // when any error exist
-    componentDidCatch(error, errorInfo) {
-        this.setState({error:error, errorInfo: errorInfo})
+    componentDidCatch(error) {
+        // console.log(error.message)
+        this.setState({error:error.message})
     }
 
     render() {
-        if (this.state.errorInfo) {
+        if (this.state.error) {
           // fallback UI if error exists
           return (
               <div className="error">
-                  <h1>Something Went Wrong...!</h1>
-                  <p>Please, try again</p>
+                  <h1>{this.state.error}!</h1>
+                  {/* by using react router dom we can make links to todoapp page */}
+                  <p>Please, reload the page and try again</p> 
               </div>
           )
         }

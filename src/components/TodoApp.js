@@ -10,10 +10,10 @@ function TodoApp() {
     // Setting todos and setTodos by calling the custom hook
     const { data: todos, setData: setTodos } = useUpdateDataLocalStorage('todos');
     const [error, setError] = useState(false);
-
-
+    
+    
     const addTodo = todo => {
-
+        
         if (!todo.text || todo.text.trim() === "") {
             setError(true);
         }
@@ -21,11 +21,9 @@ function TodoApp() {
             const newTodos = [todo, ...todos];
             setTodos(newTodos);
         }
-
+        
     }
-
-    if (error) throw new Error('ERROR! invalid input');
-
+    
     const onCompleteTodo = id => {
         let updatedTodos = todos.map(todo => {
             if (todo.id === id) {
@@ -35,17 +33,18 @@ function TodoApp() {
         });
         setTodos(updatedTodos);
     }
-
+    
     const onDeleteTodo = id => {
         const newTodos = todos.filter(todo => todo.id !== id);
         setTodos(newTodos);
     }
-
+    
     const deleteAll = () => {
         setTodos([]);
     }
-
-
+    
+    if (error) throw new Error('ERROR! invalid input');
+    
     return (
         <main className="container">
 
