@@ -19,10 +19,8 @@ class ErrorBoundary extends React.Component {
           // fallback UI if error exists
           return (
               <div className="error">
-                  <img src={error} alt="error" />
-                  <h1>{this.state.error}!</h1>
-                  {/* by using react router dom we can make links to todoapp page */}
-                  <p>Please, reload the page and try again</p> 
+                     {this.props.children}
+                  <p>{this.state.error}</p> 
               </div>
           )
         }
